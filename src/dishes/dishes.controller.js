@@ -8,9 +8,7 @@ const nextId = require("../utils/nextId");
 
 // TODO: Implement the /dishes handlers needed to make the tests pass
 
-// Validators
-
-//Does name exists
+// Validations
 
 function nameExists(req, res, next) {
   const { data: {name} = {}} = req.body;
@@ -23,8 +21,6 @@ function nameExists(req, res, next) {
     message: "Dish must include a name"
   })
 }
-
-//Is name value valid
 
 function isNameValid(req, res, next) {
   if(
@@ -40,8 +36,6 @@ function isNameValid(req, res, next) {
   next()
 }
 
-//Does description exists
-
 function descriptionExists(req, res, next) {
   const { data: {description} = {}} = req.body;
   if(description) {
@@ -54,7 +48,6 @@ function descriptionExists(req, res, next) {
   })
 }
 
-//Is description valid
 function isDescriptionValid(req, res, next) {
   if(
     res.locals.description === null ||
@@ -69,8 +62,6 @@ function isDescriptionValid(req, res, next) {
   next()
 }
 
-//Does price exists
-
 function priceExists(req, res, next) {
   const { data: {price} = {}} = req.body;
   if(price) {
@@ -82,8 +73,6 @@ function priceExists(req, res, next) {
     message: "Dish must have a price that is an integer greater than 0"
   })
 }
-
-//Is price valid
 
 function isPriceValid(req, res, next) {
   if(
@@ -98,8 +87,6 @@ function isPriceValid(req, res, next) {
   next()
 }
 
-//Does image exist
-
 function imageExists(req, res, next) {
   const { data: {image_url} = {}} = req.body
   if(image_url) {
@@ -111,8 +98,6 @@ function imageExists(req, res, next) {
     message: "Dish must include a image_url"
   })
 }
-
-//Is image valid
 
 function isImageValid(req, res, next) {
   if(
@@ -126,8 +111,6 @@ function isImageValid(req, res, next) {
   }
   next()
 }
-
-//Does dish exists
 
 function dishExists(req, res, next) {
   const {dishId} = req.params;
